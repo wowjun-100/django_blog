@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+    <br>
+    <div class="container">
+        <h1>{{ blog.title }} - 삭제하기</h1>
+        <hr>
+        <br><br>
+        <div class="jumbotron">
+        <form method="POST" enctype="'multipart/form-data">
+            {% csrf_token %}
+            <h3>{{ blog.title }} - 페이지를 정말로 삭제하겠습니까?</h3>
+            <input class="form-control" type="password" placeholder="글 비밀번호", name="password">
+            <br><br>
+            <input type="submit" class="btn btn-dark" value="삭제"/>
+        </form>
+        </div>
+    </div>
+
+{% endblock %}
