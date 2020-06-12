@@ -34,3 +34,10 @@ urlpatterns = [
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+from ckeditor_uploader import views as ckeditor_views
+
+from django.contrib.auth.decorators import login_required
+
+url(r'^ckeditor/upload/', login_required(ckeditor_views.upload), name='ckeditor_upload'),
+url(r'^ckeditor/browse/', never_cache(login_required(ckeditor_views.browse)), name='ckeditor_browse'),
